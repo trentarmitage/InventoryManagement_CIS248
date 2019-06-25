@@ -19,31 +19,49 @@ namespace Inventory
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
+            
+
             // Closes the form
             this.Close();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'inventoryData.Inventory' table. You can move, or remove it, as needed.
-            this.inventoryTableAdapter.Fill(this.inventoryData.Inventory);
-
-
+            // TODO: This line of code loads data into the 'inventoryDataSet.Inventory' table. You can move, or remove it, as needed.
+            this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);      
         }
 
-        private void ActiveCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void FillByDeptToolStripButton_Click(object sender, EventArgs e)
         {
-            //this.inventoryTableAdapter.FillByActive(this.inventoryData.Inventory);
-        }
-
-        private void ActiveCheckBox_Click(object sender, EventArgs e)
-        {
-            if (activeCheckBox.Checked)
+            try
             {
-                this.inventoryTableAdapter.FillByActive(this.inventoryData.Inventory);
+                this.inventoryTableAdapter.FillByDept(this.inventoryDataSet.Inventory, departmentToolStripTextBox1.Text);
             }
-            else
-                this.inventoryTableAdapter.Fill(this.inventoryData.Inventory);
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        private void ToolStripButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.inventoryTableAdapter.FillByEmp(this.inventoryDataSet.Inventory, toolStripTextBox1.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+
+            }
+        }
+
+        private void SaveToolStripButton_Click(object sender, EventArgs e)
+        {
+            //Save file below
+            this.inventoryTableAdapter.Update(this.inventoryDataSet.Inventory);
         }
     }
+    
 }

@@ -255,7 +255,7 @@
             this.helpToolStripButton});
             this.fillByDeptToolStrip.Location = new System.Drawing.Point(12, 0);
             this.fillByDeptToolStrip.Name = "fillByDeptToolStrip";
-            this.fillByDeptToolStrip.Size = new System.Drawing.Size(638, 25);
+            this.fillByDeptToolStrip.Size = new System.Drawing.Size(607, 25);
             this.fillByDeptToolStrip.TabIndex = 5;
             this.fillByDeptToolStrip.Text = "fillByDeptToolStrip";
             // 
@@ -269,7 +269,6 @@
             // 
             // departmentToolStripTextBox1
             // 
-            this.departmentToolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.departmentToolStripTextBox1.Name = "departmentToolStripTextBox1";
             this.departmentToolStripTextBox1.Size = new System.Drawing.Size(100, 25);
             // 
@@ -289,7 +288,6 @@
             // 
             // toolStripTextBox1
             // 
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
             // 

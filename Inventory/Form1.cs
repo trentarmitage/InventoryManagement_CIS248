@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Inventory
 {
-    public partial class Main : Form
+    public partial class Form1 : Form
     {
-        public Main()
+        public Form1()
         {
             InitializeComponent();
         }
@@ -43,6 +43,7 @@ namespace Inventory
             inventory.Close();
             inventoryDataGridView.DataSource = ds;
             inventoryDataGridView.DataMember = "Inventory";
+
             */
 
 

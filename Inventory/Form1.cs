@@ -20,8 +20,6 @@ namespace Inventory
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            
-
             // Closes the form
             this.Close();
         }
@@ -29,7 +27,7 @@ namespace Inventory
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'inventoryDataSet.Inventory' table. You can move, or remove it, as needed.
-            this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
+            //this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
 
 
             /*
@@ -54,7 +52,7 @@ namespace Inventory
         {
             try
             {
-                this.inventoryTableAdapter.FillByDept(this.inventoryDataSet.Inventory, departmentToolStripTextBox1.Text);
+                this.inventoryTableAdapter.FillByDept(this.inventoryDataSet.Inventory, departmentToolStripTextBox.Text);
             }
             catch (System.Exception ex)
             {
@@ -63,11 +61,11 @@ namespace Inventory
         }
 
 
-        private void ToolStripButton1_Click(object sender, EventArgs e)
+        private void fillByDeptToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
-                this.inventoryTableAdapter.FillByEmp(this.inventoryDataSet.Inventory, toolStripTextBox1.Text);
+                this.inventoryTableAdapter.FillByEmp(this.inventoryDataSet.Inventory, employeeToolStripTextBox.Text);
             }
             catch (System.Exception ex)
             {
@@ -106,6 +104,30 @@ namespace Inventory
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Form Closing event to make sure user has saved, prevent accidently closing
+            // Murachs C# 2015 Page 316
+            string message = "Are you sure you want to close the program? Unsaved data will be lost. \n \n" +
+                             "Do you wish to save?";
+
+            DialogResult button = MessageBox.Show(message, "Inventory", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+
+            if (button == DialogResult.Yes)
+            {
+                this.inventoryTableAdapter.Update(this.inventoryDataSet.Inventory);
+            }
+            if (button == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void RefreshToolStripButton_Click(object sender, EventArgs e)
+        {
+            // Refresh the data
         }
     }
     

@@ -39,15 +39,25 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departmentToolStripTextBox = new System.Windows.Forms.ToolStripDropDownButton();
             this.inventoryDataGridView = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemTagDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.installedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.replaceByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.inventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inventoryDataSet = new Inventory.InventoryDataSet();
             this.exitButton = new System.Windows.Forms.Button();
-            this.fillByDeptToolStrip = new System.Windows.Forms.ToolStrip();
+            this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillByDeptToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.departmentToolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.departmentToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.fillByEmpToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.employeeToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -71,8 +81,6 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.inventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inventoryDataSet = new Inventory.InventoryDataSet();
             this.inventoryTableAdapter = new Inventory.InventoryDataSetTableAdapters.InventoryTableAdapter();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -90,21 +98,15 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.insertBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemTagDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.installedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.replaceByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.refreshToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGridView)).BeginInit();
-            this.fillByDeptToolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet)).BeginInit();
+            this.fillByToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
+            this.bindingNavigator1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewCheckBoxColumn1
@@ -170,11 +172,6 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // departmentToolStripTextBox
-            // 
-            this.departmentToolStripTextBox.Name = "departmentToolStripTextBox";
-            this.departmentToolStripTextBox.Size = new System.Drawing.Size(13, 22);
-            // 
             // inventoryDataGridView
             // 
             this.inventoryDataGridView.AllowUserToAddRows = false;
@@ -199,6 +196,79 @@
             this.inventoryDataGridView.TabIndex = 3;
             this.inventoryDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.InventoryDataGridView_RowHeaderMouseClick);
             // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemDataGridViewTextBoxColumn
+            // 
+            this.itemDataGridViewTextBoxColumn.DataPropertyName = "Item";
+            this.itemDataGridViewTextBoxColumn.HeaderText = "Item";
+            this.itemDataGridViewTextBoxColumn.Name = "itemDataGridViewTextBoxColumn";
+            this.itemDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // employeeDataGridViewTextBoxColumn
+            // 
+            this.employeeDataGridViewTextBoxColumn.DataPropertyName = "Employee";
+            this.employeeDataGridViewTextBoxColumn.HeaderText = "Employee";
+            this.employeeDataGridViewTextBoxColumn.Name = "employeeDataGridViewTextBoxColumn";
+            this.employeeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // departmentDataGridViewTextBoxColumn
+            // 
+            this.departmentDataGridViewTextBoxColumn.DataPropertyName = "Department";
+            this.departmentDataGridViewTextBoxColumn.HeaderText = "Department";
+            this.departmentDataGridViewTextBoxColumn.Name = "departmentDataGridViewTextBoxColumn";
+            this.departmentDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // serialDataGridViewTextBoxColumn
+            // 
+            this.serialDataGridViewTextBoxColumn.DataPropertyName = "Serial#";
+            this.serialDataGridViewTextBoxColumn.HeaderText = "Serial#";
+            this.serialDataGridViewTextBoxColumn.Name = "serialDataGridViewTextBoxColumn";
+            this.serialDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemTagDataGridViewTextBoxColumn
+            // 
+            this.itemTagDataGridViewTextBoxColumn.DataPropertyName = "ItemTag#";
+            this.itemTagDataGridViewTextBoxColumn.HeaderText = "ItemTag#";
+            this.itemTagDataGridViewTextBoxColumn.Name = "itemTagDataGridViewTextBoxColumn";
+            this.itemTagDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // installedDataGridViewTextBoxColumn
+            // 
+            this.installedDataGridViewTextBoxColumn.DataPropertyName = "Installed";
+            this.installedDataGridViewTextBoxColumn.HeaderText = "Installed";
+            this.installedDataGridViewTextBoxColumn.Name = "installedDataGridViewTextBoxColumn";
+            this.installedDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // replaceByDataGridViewTextBoxColumn
+            // 
+            this.replaceByDataGridViewTextBoxColumn.DataPropertyName = "ReplaceBy";
+            this.replaceByDataGridViewTextBoxColumn.HeaderText = "ReplaceBy";
+            this.replaceByDataGridViewTextBoxColumn.Name = "replaceByDataGridViewTextBoxColumn";
+            this.replaceByDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // activeDataGridViewCheckBoxColumn
+            // 
+            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
+            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
+            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
+            this.activeDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // inventoryBindingSource
+            // 
+            this.inventoryBindingSource.DataMember = "Inventory";
+            this.inventoryBindingSource.DataSource = this.inventoryDataSet;
+            // 
+            // inventoryDataSet
+            // 
+            this.inventoryDataSet.DataSetName = "InventoryDataSet";
+            this.inventoryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // exitButton
             // 
             this.exitButton.Location = new System.Drawing.Point(1798, 829);
@@ -209,15 +279,17 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
-            // fillByDeptToolStrip
+            // fillByToolStrip
             // 
-            this.fillByDeptToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.fillByDeptToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fillByToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripButton,
+            this.toolStripSeparator3,
             this.fillByDeptToolStripButton,
-            this.departmentToolStripTextBox1,
+            this.departmentToolStripTextBox,
             this.toolStripSeparator1,
-            this.toolStripButton1,
-            this.toolStripTextBox1,
+            this.fillByEmpToolStripButton,
+            this.employeeToolStripTextBox,
             this.newToolStripButton,
             this.openToolStripButton,
             this.saveToolStripButton,
@@ -227,12 +299,13 @@
             this.copyToolStripButton,
             this.pasteToolStripButton,
             this.toolStripSeparator2,
-            this.helpToolStripButton});
-            this.fillByDeptToolStrip.Location = new System.Drawing.Point(12, 489);
-            this.fillByDeptToolStrip.Name = "fillByDeptToolStrip";
-            this.fillByDeptToolStrip.Size = new System.Drawing.Size(607, 25);
-            this.fillByDeptToolStrip.TabIndex = 5;
-            this.fillByDeptToolStrip.Text = "fillByDeptToolStrip";
+            this.helpToolStripButton,
+            this.toolStripButton2});
+            this.fillByToolStrip.Location = new System.Drawing.Point(12, 489);
+            this.fillByToolStrip.Name = "fillByToolStrip";
+            this.fillByToolStrip.Size = new System.Drawing.Size(717, 25);
+            this.fillByToolStrip.TabIndex = 5;
+            this.fillByToolStrip.Text = "fillByDeptToolStrip";
             // 
             // fillByDeptToolStripButton
             // 
@@ -242,31 +315,32 @@
             this.fillByDeptToolStripButton.Text = "Filter By Dept";
             this.fillByDeptToolStripButton.Click += new System.EventHandler(this.FillByDeptToolStripButton_Click);
             // 
-            // departmentToolStripTextBox1
+            // departmentToolStripTextBox
             // 
-            this.departmentToolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.departmentToolStripTextBox1.Name = "departmentToolStripTextBox1";
-            this.departmentToolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            this.departmentToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.departmentToolStripTextBox.Name = "departmentToolStripTextBox";
+            this.departmentToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            this.departmentToolStripTextBox.Enter += new System.EventHandler(this.fillByDeptToolStripButton_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton1
+            // fillByEmpToolStripButton
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(108, 22);
-            this.toolStripButton1.Text = "Filter By Employee";
-            this.toolStripButton1.Click += new System.EventHandler(this.ToolStripButton1_Click);
+            this.fillByEmpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillByEmpToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.fillByEmpToolStripButton.Name = "fillByEmpToolStripButton";
+            this.fillByEmpToolStripButton.Size = new System.Drawing.Size(108, 22);
+            this.fillByEmpToolStripButton.Text = "Filter By Employee";
+            this.fillByEmpToolStripButton.Click += new System.EventHandler(this.fillByDeptToolStripButton_Click);
             // 
-            // toolStripTextBox1
+            // employeeToolStripTextBox
             // 
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            this.employeeToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.employeeToolStripTextBox.Name = "employeeToolStripTextBox";
+            this.employeeToolStripTextBox.Size = new System.Drawing.Size(100, 25);
             // 
             // newToolStripButton
             // 
@@ -474,16 +548,6 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 7;
             // 
-            // inventoryBindingSource
-            // 
-            this.inventoryBindingSource.DataMember = "Inventory";
-            this.inventoryBindingSource.DataSource = this.inventoryDataSet;
-            // 
-            // inventoryDataSet
-            // 
-            this.inventoryDataSet.DataSetName = "InventoryDataSet";
-            this.inventoryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // inventoryTableAdapter
             // 
             this.inventoryTableAdapter.ClearBeforeFill = true;
@@ -628,70 +692,29 @@
             this.deleteBtn.UseVisualStyleBackColor = true;
             this.deleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
-            // iDDataGridViewTextBoxColumn
+            // refreshToolStripButton
             // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.refreshToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.refreshToolStripButton.Name = "refreshToolStripButton";
+            this.refreshToolStripButton.Size = new System.Drawing.Size(50, 22);
+            this.refreshToolStripButton.Text = "Refresh";
+            this.refreshToolStripButton.Click += new System.EventHandler(this.RefreshToolStripButton_Click);
             // 
-            // itemDataGridViewTextBoxColumn
+            // toolStripButton2
             // 
-            this.itemDataGridViewTextBoxColumn.DataPropertyName = "Item";
-            this.itemDataGridViewTextBoxColumn.HeaderText = "Item";
-            this.itemDataGridViewTextBoxColumn.Name = "itemDataGridViewTextBoxColumn";
-            this.itemDataGridViewTextBoxColumn.ReadOnly = true;
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
             // 
-            // employeeDataGridViewTextBoxColumn
+            // toolStripSeparator3
             // 
-            this.employeeDataGridViewTextBoxColumn.DataPropertyName = "Employee";
-            this.employeeDataGridViewTextBoxColumn.HeaderText = "Employee";
-            this.employeeDataGridViewTextBoxColumn.Name = "employeeDataGridViewTextBoxColumn";
-            this.employeeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
-            // departmentDataGridViewTextBoxColumn
-            // 
-            this.departmentDataGridViewTextBoxColumn.DataPropertyName = "Department";
-            this.departmentDataGridViewTextBoxColumn.HeaderText = "Department";
-            this.departmentDataGridViewTextBoxColumn.Name = "departmentDataGridViewTextBoxColumn";
-            this.departmentDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // serialDataGridViewTextBoxColumn
-            // 
-            this.serialDataGridViewTextBoxColumn.DataPropertyName = "Serial#";
-            this.serialDataGridViewTextBoxColumn.HeaderText = "Serial#";
-            this.serialDataGridViewTextBoxColumn.Name = "serialDataGridViewTextBoxColumn";
-            this.serialDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // itemTagDataGridViewTextBoxColumn
-            // 
-            this.itemTagDataGridViewTextBoxColumn.DataPropertyName = "ItemTag#";
-            this.itemTagDataGridViewTextBoxColumn.HeaderText = "ItemTag#";
-            this.itemTagDataGridViewTextBoxColumn.Name = "itemTagDataGridViewTextBoxColumn";
-            this.itemTagDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // installedDataGridViewTextBoxColumn
-            // 
-            this.installedDataGridViewTextBoxColumn.DataPropertyName = "Installed";
-            this.installedDataGridViewTextBoxColumn.HeaderText = "Installed";
-            this.installedDataGridViewTextBoxColumn.Name = "installedDataGridViewTextBoxColumn";
-            this.installedDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // replaceByDataGridViewTextBoxColumn
-            // 
-            this.replaceByDataGridViewTextBoxColumn.DataPropertyName = "ReplaceBy";
-            this.replaceByDataGridViewTextBoxColumn.HeaderText = "ReplaceBy";
-            this.replaceByDataGridViewTextBoxColumn.Name = "replaceByDataGridViewTextBoxColumn";
-            this.replaceByDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // activeDataGridViewCheckBoxColumn
-            // 
-            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "Active";
-            this.activeDataGridViewCheckBoxColumn.HeaderText = "Active";
-            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
-            this.activeDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // Main
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -715,20 +738,21 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.bindingNavigator1);
-            this.Controls.Add(this.fillByDeptToolStrip);
+            this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.inventoryDataGridView);
             this.Controls.Add(this.exitButton);
-            this.Name = "Main";
+            this.Name = "Form1";
             this.Text = "Inventory Management";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGridView)).EndInit();
-            this.fillByDeptToolStrip.ResumeLayout(false);
-            this.fillByDeptToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet)).EndInit();
+            this.fillByToolStrip.ResumeLayout(false);
+            this.fillByToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -747,14 +771,13 @@
         private InventoryDataSet inventoryDataSet;
         private System.Windows.Forms.BindingSource inventoryBindingSource;
         private InventoryDataSetTableAdapters.InventoryTableAdapter inventoryTableAdapter;
-        private System.Windows.Forms.ToolStripDropDownButton departmentToolStripTextBox;
         private System.Windows.Forms.DataGridView inventoryDataGridView;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.ToolStrip fillByDeptToolStrip;
-        private System.Windows.Forms.ToolStripTextBox departmentToolStripTextBox1;
+        private System.Windows.Forms.ToolStrip fillByToolStrip;
+        private System.Windows.Forms.ToolStripTextBox departmentToolStripTextBox;
         private System.Windows.Forms.ToolStripButton fillByDeptToolStripButton;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripTextBox employeeToolStripTextBox;
+        private System.Windows.Forms.ToolStripButton fillByEmpToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton newToolStripButton;
         private System.Windows.Forms.ToolStripButton openToolStripButton;
@@ -804,6 +827,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn installedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn replaceByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.ToolStripButton refreshToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }
 

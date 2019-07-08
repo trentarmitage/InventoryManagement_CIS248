@@ -49,10 +49,13 @@
             this.installedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.replaceByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewDeleteButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.inventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventoryDataSet = new Inventory.InventoryDataSet();
             this.exitButton = new System.Windows.Forms.Button();
             this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
+            this.refreshToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.fillByDeptToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.departmentToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -68,6 +71,7 @@
             this.pasteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -80,27 +84,25 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.itemTxtBox = new System.Windows.Forms.TextBox();
             this.inventoryTableAdapter = new Inventory.InventoryDataSetTableAdapters.InventoryTableAdapter();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.empTxtBox = new System.Windows.Forms.TextBox();
+            this.itemLbl = new System.Windows.Forms.Label();
+            this.empLbl = new System.Windows.Forms.Label();
+            this.deptLbl = new System.Windows.Forms.Label();
+            this.snLbl = new System.Windows.Forms.Label();
+            this.itemTagLbl = new System.Windows.Forms.Label();
+            this.installDateLbl = new System.Windows.Forms.Label();
+            this.deptTxtBox = new System.Windows.Forms.TextBox();
+            this.snTxtBox = new System.Windows.Forms.TextBox();
+            this.itemTagTxtBox = new System.Windows.Forms.TextBox();
+            this.installDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.replaceDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.updateBtn = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.activeCheckBox = new System.Windows.Forms.CheckBox();
             this.insertBtn = new System.Windows.Forms.Button();
-            this.deleteBtn = new System.Windows.Forms.Button();
-            this.refreshToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.replaceDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet)).BeginInit();
@@ -187,14 +189,16 @@
             this.itemTagDataGridViewTextBoxColumn,
             this.installedDataGridViewTextBoxColumn,
             this.replaceByDataGridViewTextBoxColumn,
-            this.activeDataGridViewCheckBoxColumn});
+            this.activeDataGridViewCheckBoxColumn,
+            this.dataGridViewDeleteButton});
             this.inventoryDataGridView.DataSource = this.inventoryBindingSource;
             this.inventoryDataGridView.Location = new System.Drawing.Point(12, 12);
             this.inventoryDataGridView.Name = "inventoryDataGridView";
             this.inventoryDataGridView.ReadOnly = true;
-            this.inventoryDataGridView.Size = new System.Drawing.Size(1017, 474);
+            this.inventoryDataGridView.Size = new System.Drawing.Size(1054, 474);
             this.inventoryDataGridView.TabIndex = 3;
-            this.inventoryDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.InventoryDataGridView_RowHeaderMouseClick);
+            this.inventoryDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.InventoryDataGridView_CellClick);
+            this.inventoryDataGridView.SelectionChanged += new System.EventHandler(this.InventoryDataGridView_SelectionChanged);
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -259,6 +263,14 @@
             this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
             this.activeDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
+            // dataGridViewDeleteButton
+            // 
+            this.dataGridViewDeleteButton.HeaderText = "DELETE";
+            this.dataGridViewDeleteButton.Name = "dataGridViewDeleteButton";
+            this.dataGridViewDeleteButton.ReadOnly = true;
+            this.dataGridViewDeleteButton.Text = "DELETE";
+            this.dataGridViewDeleteButton.UseColumnTextForButtonValue = true;
+            // 
             // inventoryBindingSource
             // 
             this.inventoryBindingSource.DataMember = "Inventory";
@@ -303,9 +315,22 @@
             this.toolStripButton2});
             this.fillByToolStrip.Location = new System.Drawing.Point(12, 489);
             this.fillByToolStrip.Name = "fillByToolStrip";
-            this.fillByToolStrip.Size = new System.Drawing.Size(717, 25);
+            this.fillByToolStrip.Size = new System.Drawing.Size(686, 25);
             this.fillByToolStrip.TabIndex = 5;
             this.fillByToolStrip.Text = "fillByDeptToolStrip";
+            // 
+            // refreshToolStripButton
+            // 
+            this.refreshToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.refreshToolStripButton.Name = "refreshToolStripButton";
+            this.refreshToolStripButton.Size = new System.Drawing.Size(50, 22);
+            this.refreshToolStripButton.Text = "Refresh";
+            this.refreshToolStripButton.Click += new System.EventHandler(this.RefreshToolStripButton_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // fillByDeptToolStripButton
             // 
@@ -313,14 +338,12 @@
             this.fillByDeptToolStripButton.Name = "fillByDeptToolStripButton";
             this.fillByDeptToolStripButton.Size = new System.Drawing.Size(81, 22);
             this.fillByDeptToolStripButton.Text = "Filter By Dept";
-            this.fillByDeptToolStripButton.Click += new System.EventHandler(this.FillByDeptToolStripButton_Click);
+            this.fillByDeptToolStripButton.Click += new System.EventHandler(this.fillByDeptToolStripButton_Click);
             // 
             // departmentToolStripTextBox
             // 
-            this.departmentToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.departmentToolStripTextBox.Name = "departmentToolStripTextBox";
             this.departmentToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            this.departmentToolStripTextBox.Enter += new System.EventHandler(this.fillByDeptToolStripButton_Click);
             // 
             // toolStripSeparator1
             // 
@@ -334,11 +357,10 @@
             this.fillByEmpToolStripButton.Name = "fillByEmpToolStripButton";
             this.fillByEmpToolStripButton.Size = new System.Drawing.Size(108, 22);
             this.fillByEmpToolStripButton.Text = "Filter By Employee";
-            this.fillByEmpToolStripButton.Click += new System.EventHandler(this.fillByDeptToolStripButton_Click);
+            this.fillByEmpToolStripButton.Click += new System.EventHandler(this.fillByEmpToolStripButton_Click);
             // 
             // employeeToolStripTextBox
             // 
-            this.employeeToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.employeeToolStripTextBox.Name = "employeeToolStripTextBox";
             this.employeeToolStripTextBox.Size = new System.Drawing.Size(100, 25);
             // 
@@ -425,6 +447,15 @@
             this.helpToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.helpToolStripButton.Text = "He&lp";
             // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
@@ -444,7 +475,7 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(1032, 12);
+            this.bindingNavigator1.Location = new System.Drawing.Point(1292, 52);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -507,7 +538,6 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -541,116 +571,116 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // textBox1
+            // itemTxtBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(139, 536);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
+            this.itemTxtBox.Location = new System.Drawing.Point(139, 536);
+            this.itemTxtBox.Name = "itemTxtBox";
+            this.itemTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.itemTxtBox.TabIndex = 7;
             // 
             // inventoryTableAdapter
             // 
             this.inventoryTableAdapter.ClearBeforeFill = true;
             // 
-            // textBox2
+            // empTxtBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(139, 562);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 8;
+            this.empTxtBox.Location = new System.Drawing.Point(139, 562);
+            this.empTxtBox.Name = "empTxtBox";
+            this.empTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.empTxtBox.TabIndex = 8;
             // 
-            // label1
+            // itemLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 536);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "label1";
+            this.itemLbl.AutoSize = true;
+            this.itemLbl.Location = new System.Drawing.Point(26, 536);
+            this.itemLbl.Name = "itemLbl";
+            this.itemLbl.Size = new System.Drawing.Size(30, 13);
+            this.itemLbl.TabIndex = 9;
+            this.itemLbl.Text = "Item:";
             // 
-            // label2
+            // empLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 565);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "label2";
+            this.empLbl.AutoSize = true;
+            this.empLbl.Location = new System.Drawing.Point(26, 565);
+            this.empLbl.Name = "empLbl";
+            this.empLbl.Size = new System.Drawing.Size(56, 13);
+            this.empLbl.TabIndex = 10;
+            this.empLbl.Text = "Employee:";
             // 
-            // label3
+            // deptLbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 596);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "label2";
+            this.deptLbl.AutoSize = true;
+            this.deptLbl.Location = new System.Drawing.Point(26, 596);
+            this.deptLbl.Name = "deptLbl";
+            this.deptLbl.Size = new System.Drawing.Size(65, 13);
+            this.deptLbl.TabIndex = 10;
+            this.deptLbl.Text = "Department:";
             // 
-            // label4
+            // snLbl
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 622);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "label2";
+            this.snLbl.AutoSize = true;
+            this.snLbl.Location = new System.Drawing.Point(26, 622);
+            this.snLbl.Name = "snLbl";
+            this.snLbl.Size = new System.Drawing.Size(46, 13);
+            this.snLbl.TabIndex = 10;
+            this.snLbl.Text = "Serial #:";
             // 
-            // label5
+            // itemTagLbl
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 648);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "label2";
+            this.itemTagLbl.AutoSize = true;
+            this.itemTagLbl.Location = new System.Drawing.Point(26, 648);
+            this.itemTagLbl.Name = "itemTagLbl";
+            this.itemTagLbl.Size = new System.Drawing.Size(62, 13);
+            this.itemTagLbl.TabIndex = 10;
+            this.itemTagLbl.Text = "Item Tag #:";
             // 
-            // label6
+            // installDateLbl
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 677);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "label2";
+            this.installDateLbl.AutoSize = true;
+            this.installDateLbl.Location = new System.Drawing.Point(26, 677);
+            this.installDateLbl.Name = "installDateLbl";
+            this.installDateLbl.Size = new System.Drawing.Size(63, 13);
+            this.installDateLbl.TabIndex = 10;
+            this.installDateLbl.Text = "Install Date:";
             // 
-            // textBox3
+            // deptTxtBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(139, 593);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 11;
+            this.deptTxtBox.Location = new System.Drawing.Point(139, 593);
+            this.deptTxtBox.Name = "deptTxtBox";
+            this.deptTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.deptTxtBox.TabIndex = 11;
             // 
-            // textBox4
+            // snTxtBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(139, 619);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 12;
+            this.snTxtBox.Location = new System.Drawing.Point(139, 619);
+            this.snTxtBox.Name = "snTxtBox";
+            this.snTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.snTxtBox.TabIndex = 12;
             // 
-            // textBox5
+            // itemTagTxtBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(139, 645);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 13;
+            this.itemTagTxtBox.Location = new System.Drawing.Point(139, 645);
+            this.itemTagTxtBox.Name = "itemTagTxtBox";
+            this.itemTagTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.itemTagTxtBox.TabIndex = 13;
             // 
-            // dateTimePicker1
+            // installDateTimePicker
             // 
-            this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(139, 671);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 14;
+            this.installDateTimePicker.CustomFormat = "dd-MM-yyyy";
+            this.installDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.installDateTimePicker.Location = new System.Drawing.Point(139, 671);
+            this.installDateTimePicker.Name = "installDateTimePicker";
+            this.installDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.installDateTimePicker.TabIndex = 14;
             // 
-            // dateTimePicker2
+            // replaceDateTimePicker
             // 
-            this.dateTimePicker2.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(139, 697);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 15;
+            this.replaceDateTimePicker.CustomFormat = "dd-MM-yyyy";
+            this.replaceDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.replaceDateTimePicker.Location = new System.Drawing.Point(139, 697);
+            this.replaceDateTimePicker.Name = "replaceDateTimePicker";
+            this.replaceDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.replaceDateTimePicker.TabIndex = 15;
             // 
             // updateBtn
             // 
@@ -662,15 +692,15 @@
             this.updateBtn.UseVisualStyleBackColor = true;
             this.updateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
-            // checkBox1
+            // activeCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(259, 539);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(62, 17);
-            this.checkBox1.TabIndex = 17;
-            this.checkBox1.Text = "Active?";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.activeCheckBox.AutoSize = true;
+            this.activeCheckBox.Location = new System.Drawing.Point(259, 539);
+            this.activeCheckBox.Name = "activeCheckBox";
+            this.activeCheckBox.Size = new System.Drawing.Size(62, 17);
+            this.activeCheckBox.TabIndex = 17;
+            this.activeCheckBox.Text = "Active?";
+            this.activeCheckBox.UseVisualStyleBackColor = true;
             // 
             // insertBtn
             // 
@@ -682,37 +712,21 @@
             this.insertBtn.UseVisualStyleBackColor = true;
             this.insertBtn.Click += new System.EventHandler(this.InsertBtn_Click);
             // 
-            // deleteBtn
+            // textBox6
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(264, 638);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(75, 23);
-            this.deleteBtn.TabIndex = 18;
-            this.deleteBtn.Text = "Delete";
-            this.deleteBtn.UseVisualStyleBackColor = true;
-            this.deleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
+            this.textBox6.Location = new System.Drawing.Point(130, 779);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.TabIndex = 19;
             // 
-            // refreshToolStripButton
+            // replaceDate
             // 
-            this.refreshToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.refreshToolStripButton.Name = "refreshToolStripButton";
-            this.refreshToolStripButton.Size = new System.Drawing.Size(50, 22);
-            this.refreshToolStripButton.Text = "Refresh";
-            this.refreshToolStripButton.Click += new System.EventHandler(this.RefreshToolStripButton_Click);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.replaceDate.AutoSize = true;
+            this.replaceDate.Location = new System.Drawing.Point(26, 703);
+            this.replaceDate.Name = "replaceDate";
+            this.replaceDate.Size = new System.Drawing.Size(99, 13);
+            this.replaceDate.TabIndex = 10;
+            this.replaceDate.Text = "Replacement Date:";
             // 
             // Form1
             // 
@@ -720,23 +734,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1885, 864);
-            this.Controls.Add(this.deleteBtn);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.activeCheckBox);
             this.Controls.Add(this.insertBtn);
             this.Controls.Add(this.updateBtn);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.replaceDateTimePicker);
+            this.Controls.Add(this.installDateTimePicker);
+            this.Controls.Add(this.itemTagTxtBox);
+            this.Controls.Add(this.snTxtBox);
+            this.Controls.Add(this.deptTxtBox);
+            this.Controls.Add(this.replaceDate);
+            this.Controls.Add(this.installDateLbl);
+            this.Controls.Add(this.itemTagLbl);
+            this.Controls.Add(this.snLbl);
+            this.Controls.Add(this.deptLbl);
+            this.Controls.Add(this.empLbl);
+            this.Controls.Add(this.itemLbl);
+            this.Controls.Add(this.empTxtBox);
+            this.Controls.Add(this.itemTxtBox);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.inventoryDataGridView);
@@ -801,23 +816,25 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.TextBox itemTxtBox;
+        private System.Windows.Forms.TextBox empTxtBox;
+        private System.Windows.Forms.Label itemLbl;
+        private System.Windows.Forms.Label empLbl;
+        private System.Windows.Forms.Label deptLbl;
+        private System.Windows.Forms.Label snLbl;
+        private System.Windows.Forms.Label itemTagLbl;
+        private System.Windows.Forms.Label installDateLbl;
+        private System.Windows.Forms.TextBox deptTxtBox;
+        private System.Windows.Forms.TextBox snTxtBox;
+        private System.Windows.Forms.TextBox itemTagTxtBox;
+        private System.Windows.Forms.DateTimePicker installDateTimePicker;
+        private System.Windows.Forms.DateTimePicker replaceDateTimePicker;
         private System.Windows.Forms.Button updateBtn;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox activeCheckBox;
         private System.Windows.Forms.Button insertBtn;
-        private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.ToolStripButton refreshToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeDataGridViewTextBoxColumn;
@@ -827,9 +844,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn installedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn replaceByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.ToolStripButton refreshToolStripButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewDeleteButton;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label replaceDate;
     }
 }
 

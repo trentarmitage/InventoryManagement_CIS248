@@ -13,10 +13,12 @@ namespace Inventory
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
         }
+
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
@@ -26,38 +28,24 @@ namespace Inventory
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             // TODO: This line of code loads data into the 'inventoryDataSet.Inventory' table. You can move, or remove it, as needed.
-            //this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
+            this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
 
-
-            /*
-            string query = "Select * FROM Inventory";
-            OleDbConnection inventory = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=data\\Inventory.accdb");
-            OleDbCommand selectCMD = new OleDbCommand("Select * FROM Inventory", inventory);
-            OleDbDataAdapter dataadapter = new OleDbDataAdapter(query, inventory);
-            DataSet ds = new DataSet();
-            inventory.Open();
-            dataadapter.Fill(ds, "Inventory");
-            inventory.Close();
-            inventoryDataGridView.DataSource = ds;
-            inventoryDataGridView.DataMember = "Inventory";
-
-            */
-
-
-            
         }
 
-        private void FillByDeptToolStripButton_Click(object sender, EventArgs e)
+        private void fillByEmpToolStripButton_Click(object sender, EventArgs e)
         {
+
             try
             {
-                this.inventoryTableAdapter.FillByDept(this.inventoryDataSet.Inventory, departmentToolStripTextBox.Text);
+                this.inventoryTableAdapter.FillByEmp(this.inventoryDataSet.Inventory, employeeToolStripTextBox.Text);
             }
             catch (System.Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+
         }
 
 
@@ -65,7 +53,7 @@ namespace Inventory
         {
             try
             {
-                this.inventoryTableAdapter.FillByEmp(this.inventoryDataSet.Inventory, employeeToolStripTextBox.Text);
+                this.inventoryTableAdapter.FillByDept(this.inventoryDataSet.Inventory, departmentToolStripTextBox.Text);
             }
             catch (System.Exception ex)
             {
@@ -82,10 +70,10 @@ namespace Inventory
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
+            //Grab ID from Field or showdialog maybe?
 
 
-            this.inventoryTableAdapter.InsertQuery(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, dateTimePicker1.Value, dateTimePicker2.Value, checkBox1.Checked);
-            
+            this.inventoryTableAdapter.InsertQuery(itemTxtBox.Text, empTxtBox.Text, deptTxtBox.Text, snTxtBox.Text, itemTagTxtBox.Text, installDateTimePicker.Value, replaceDateTimePicker.Value, activeCheckBox.Checked);
             this.inventoryTableAdapter.Update(this.inventoryDataSet.Inventory);
             this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
 
@@ -93,18 +81,27 @@ namespace Inventory
 
         private void InventoryDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            textBox1.Text = inventoryDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+            itemTxtBox.Text = inventoryDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
 
         private void InsertBtn_Click(object sender, EventArgs e)
         {
+            bool checkboxValue;
+            if (activeCheckBox.Checked)
+            {
+                checkboxValue = true;
+            }
+            else
+            {
+                checkboxValue = false;
+            }
+
+            this.inventoryTableAdapter.Insert(itemTxtBox.Text, empTxtBox.Text, deptTxtBox.Text, snTxtBox.Text, itemTagTxtBox.Text, installDateTimePicker.Value, replaceDateTimePicker.Value, checkboxValue);
+            this.inventoryTableAdapter.Update(this.inventoryDataSet.Inventory);
+            this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
 
         }
 
-        private void DeleteBtn_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -128,7 +125,62 @@ namespace Inventory
         private void RefreshToolStripButton_Click(object sender, EventArgs e)
         {
             // Refresh the data
+            this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
+        }
+
+        private void InventoryDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if click is on new row or header row
+            if (e.RowIndex == inventoryDataGridView.NewRowIndex || e.RowIndex < 0)
+                return;
+
+            //Check if click is on specific column 
+            if (e.ColumnIndex == inventoryDataGridView.Columns["dataGridViewDeleteButton"].Index)
+            {
+                //Put some logic here, for example to remove row from your binding list.
+                inventoryBindingSource.RemoveAt(e.RowIndex);
+            }
+        }
+
+        private void InventoryDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+
+            // ID
+
+            if (inventoryDataGridView.CurrentCell != null)
+            {
+                textBox6.Text = inventoryDataGridView.CurrentRow.Cells["iDDataGridViewTextBoxColumn"].Value.ToString();
+                itemTxtBox.Text = inventoryDataGridView.CurrentRow.Cells[1].Value.ToString();
+                empTxtBox.Text = inventoryDataGridView.CurrentRow.Cells[2].Value.ToString();
+                deptTxtBox.Text = inventoryDataGridView.CurrentRow.Cells[3].Value.ToString();
+                snTxtBox.Text = inventoryDataGridView.CurrentRow.Cells[4].Value.ToString();
+                itemTagTxtBox.Text = inventoryDataGridView.CurrentRow.Cells[5].Value.ToString();
+                var date1 = inventoryDataGridView.CurrentRow.Cells[6].Value;
+                if (!(date1 is DBNull))
+                {
+                    installDateTimePicker.Value = Convert.ToDateTime(inventoryDataGridView.CurrentRow.Cells[6].Value);
+                }
+
+                var date2 = inventoryDataGridView.CurrentRow.Cells[7].Value;
+                if (!(date2 is DBNull))
+                {
+                    installDateTimePicker.Value = Convert.ToDateTime(inventoryDataGridView.CurrentRow.Cells[7].Value);
+                }
+
+
+                // Active
+                bool checkboxDGV = Convert.ToBoolean(inventoryDataGridView.CurrentRow.Cells[8].Value.ToString());
+                if (checkboxDGV == true)
+                {
+                    activeCheckBox.Checked = true;
+                }
+                else
+                {
+                    activeCheckBox.Checked = false;
+                }
+            }
+
         }
     }
-    
+
 }

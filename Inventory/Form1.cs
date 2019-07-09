@@ -28,6 +28,8 @@ namespace Inventory
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'inventoryDataSet1.Inventory' table. You can move, or remove it, as needed.
+            this.inventoryTableAdapter.Fill(this.inventoryDataSet1.Inventory);
 
             // TODO: This line of code loads data into the 'inventoryDataSet.Inventory' table. You can move, or remove it, as needed.
             this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
@@ -70,13 +72,27 @@ namespace Inventory
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
-            //Grab ID from Field or showdialog maybe?
-
-
-            this.inventoryTableAdapter.InsertQuery(itemTxtBox.Text, empTxtBox.Text, deptTxtBox.Text, snTxtBox.Text, itemTagTxtBox.Text, installDateTimePicker.Value, replaceDateTimePicker.Value, activeCheckBox.Checked);
-            this.inventoryTableAdapter.Update(this.inventoryDataSet.Inventory);
-            this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
-
+            //Grab ID from Field or showdialog maybe? Then do the dirty work.
+            if (inventoryDataGridView.CurrentCell == null)
+            {
+                MessageBox.Show("Please select a field to update!");
+            }
+            else
+            {
+                int id = Convert.ToInt32(inventoryDataGridView.CurrentRow.Cells["iDDataGridViewTextBoxColumn"].Value);
+                bool checkboxValue;
+                if (activeCheckBox.Checked)
+                {
+                    checkboxValue = true;
+                }
+                else
+                {
+                    checkboxValue = false;
+                }                                           
+                this.inventoryTableAdapter.UpdateQuery(itemTxtBox.Text, empTxtBox.Text, deptTxtBox.Text, snTxtBox.Text, itemTagTxtBox.Text, installDateTimePicker.Value, replaceDateTimePicker.Value, checkboxValue, id);
+                this.inventoryTableAdapter.Update(this.inventoryDataSet.Inventory);
+                this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
+            }
         }
 
         private void InventoryDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -149,7 +165,7 @@ namespace Inventory
 
             if (inventoryDataGridView.CurrentCell != null)
             {
-                textBox6.Text = inventoryDataGridView.CurrentRow.Cells["iDDataGridViewTextBoxColumn"].Value.ToString();
+                idTextbox.Text = inventoryDataGridView.CurrentRow.Cells["iDDataGridViewTextBoxColumn"].Value.ToString();
                 itemTxtBox.Text = inventoryDataGridView.CurrentRow.Cells[1].Value.ToString();
                 empTxtBox.Text = inventoryDataGridView.CurrentRow.Cells[2].Value.ToString();
                 deptTxtBox.Text = inventoryDataGridView.CurrentRow.Cells[3].Value.ToString();

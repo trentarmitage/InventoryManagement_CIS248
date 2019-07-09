@@ -71,21 +71,7 @@
             this.pasteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.itemTxtBox = new System.Windows.Forms.TextBox();
-            this.inventoryTableAdapter = new Inventory.InventoryDataSetTableAdapters.InventoryTableAdapter();
             this.empTxtBox = new System.Windows.Forms.TextBox();
             this.itemLbl = new System.Windows.Forms.Label();
             this.empLbl = new System.Windows.Forms.Label();
@@ -101,14 +87,23 @@
             this.updateBtn = new System.Windows.Forms.Button();
             this.activeCheckBox = new System.Windows.Forms.CheckBox();
             this.insertBtn = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.idTextbox = new System.Windows.Forms.TextBox();
             this.replaceDate = new System.Windows.Forms.Label();
+            this.inventoryTableAdapter = new Inventory.InventoryDataSetTableAdapters.InventoryTableAdapter();
+            this.inventoryDataSet1 = new Inventory.InventoryDataSet();
+            this.inventoryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.idLbl = new System.Windows.Forms.Label();
+            this.inputGroupBox = new System.Windows.Forms.GroupBox();
+            this.clearBtn = new System.Windows.Forms.Button();
+            this.notesTextbox = new System.Windows.Forms.TextBox();
+            this.notesLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet)).BeginInit();
             this.fillByToolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource1)).BeginInit();
+            this.inputGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewCheckBoxColumn1
@@ -283,7 +278,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(1798, 829);
+            this.exitButton.Location = new System.Drawing.Point(991, 760);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 1;
@@ -311,11 +306,10 @@
             this.copyToolStripButton,
             this.pasteToolStripButton,
             this.toolStripSeparator2,
-            this.helpToolStripButton,
-            this.toolStripButton2});
+            this.helpToolStripButton});
             this.fillByToolStrip.Location = new System.Drawing.Point(12, 489);
             this.fillByToolStrip.Name = "fillByToolStrip";
-            this.fillByToolStrip.Size = new System.Drawing.Size(686, 25);
+            this.fillByToolStrip.Size = new System.Drawing.Size(663, 25);
             this.fillByToolStrip.TabIndex = 5;
             this.fillByToolStrip.Text = "fillByDeptToolStrip";
             // 
@@ -447,144 +441,16 @@
             this.helpToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.helpToolStripButton.Text = "He&lp";
             // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
-            // 
-            // bindingNavigator1
-            // 
-            this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bindingNavigator1.BindingSource = this.inventoryBindingSource;
-            this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
-            this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.bindingNavigator1.Dock = System.Windows.Forms.DockStyle.None;
-            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(1292, 52);
-            this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.bindingNavigator1.Name = "bindingNavigator1";
-            this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(255, 25);
-            this.bindingNavigator1.TabIndex = 6;
-            this.bindingNavigator1.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
             // itemTxtBox
             // 
-            this.itemTxtBox.Location = new System.Drawing.Point(139, 536);
+            this.itemTxtBox.Location = new System.Drawing.Point(218, 45);
             this.itemTxtBox.Name = "itemTxtBox";
             this.itemTxtBox.Size = new System.Drawing.Size(100, 20);
             this.itemTxtBox.TabIndex = 7;
             // 
-            // inventoryTableAdapter
-            // 
-            this.inventoryTableAdapter.ClearBeforeFill = true;
-            // 
             // empTxtBox
             // 
-            this.empTxtBox.Location = new System.Drawing.Point(139, 562);
+            this.empTxtBox.Location = new System.Drawing.Point(218, 71);
             this.empTxtBox.Name = "empTxtBox";
             this.empTxtBox.Size = new System.Drawing.Size(100, 20);
             this.empTxtBox.TabIndex = 8;
@@ -592,7 +458,7 @@
             // itemLbl
             // 
             this.itemLbl.AutoSize = true;
-            this.itemLbl.Location = new System.Drawing.Point(26, 536);
+            this.itemLbl.Location = new System.Drawing.Point(6, 48);
             this.itemLbl.Name = "itemLbl";
             this.itemLbl.Size = new System.Drawing.Size(30, 13);
             this.itemLbl.TabIndex = 9;
@@ -601,7 +467,7 @@
             // empLbl
             // 
             this.empLbl.AutoSize = true;
-            this.empLbl.Location = new System.Drawing.Point(26, 565);
+            this.empLbl.Location = new System.Drawing.Point(6, 74);
             this.empLbl.Name = "empLbl";
             this.empLbl.Size = new System.Drawing.Size(56, 13);
             this.empLbl.TabIndex = 10;
@@ -610,7 +476,7 @@
             // deptLbl
             // 
             this.deptLbl.AutoSize = true;
-            this.deptLbl.Location = new System.Drawing.Point(26, 596);
+            this.deptLbl.Location = new System.Drawing.Point(6, 100);
             this.deptLbl.Name = "deptLbl";
             this.deptLbl.Size = new System.Drawing.Size(65, 13);
             this.deptLbl.TabIndex = 10;
@@ -619,7 +485,7 @@
             // snLbl
             // 
             this.snLbl.AutoSize = true;
-            this.snLbl.Location = new System.Drawing.Point(26, 622);
+            this.snLbl.Location = new System.Drawing.Point(6, 126);
             this.snLbl.Name = "snLbl";
             this.snLbl.Size = new System.Drawing.Size(46, 13);
             this.snLbl.TabIndex = 10;
@@ -628,7 +494,7 @@
             // itemTagLbl
             // 
             this.itemTagLbl.AutoSize = true;
-            this.itemTagLbl.Location = new System.Drawing.Point(26, 648);
+            this.itemTagLbl.Location = new System.Drawing.Point(6, 152);
             this.itemTagLbl.Name = "itemTagLbl";
             this.itemTagLbl.Size = new System.Drawing.Size(62, 13);
             this.itemTagLbl.TabIndex = 10;
@@ -637,7 +503,7 @@
             // installDateLbl
             // 
             this.installDateLbl.AutoSize = true;
-            this.installDateLbl.Location = new System.Drawing.Point(26, 677);
+            this.installDateLbl.Location = new System.Drawing.Point(6, 181);
             this.installDateLbl.Name = "installDateLbl";
             this.installDateLbl.Size = new System.Drawing.Size(63, 13);
             this.installDateLbl.TabIndex = 10;
@@ -645,21 +511,21 @@
             // 
             // deptTxtBox
             // 
-            this.deptTxtBox.Location = new System.Drawing.Point(139, 593);
+            this.deptTxtBox.Location = new System.Drawing.Point(218, 97);
             this.deptTxtBox.Name = "deptTxtBox";
             this.deptTxtBox.Size = new System.Drawing.Size(100, 20);
             this.deptTxtBox.TabIndex = 11;
             // 
             // snTxtBox
             // 
-            this.snTxtBox.Location = new System.Drawing.Point(139, 619);
+            this.snTxtBox.Location = new System.Drawing.Point(218, 123);
             this.snTxtBox.Name = "snTxtBox";
             this.snTxtBox.Size = new System.Drawing.Size(100, 20);
             this.snTxtBox.TabIndex = 12;
             // 
             // itemTagTxtBox
             // 
-            this.itemTagTxtBox.Location = new System.Drawing.Point(139, 645);
+            this.itemTagTxtBox.Location = new System.Drawing.Point(218, 149);
             this.itemTagTxtBox.Name = "itemTagTxtBox";
             this.itemTagTxtBox.Size = new System.Drawing.Size(100, 20);
             this.itemTagTxtBox.TabIndex = 13;
@@ -668,7 +534,7 @@
             // 
             this.installDateTimePicker.CustomFormat = "dd-MM-yyyy";
             this.installDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.installDateTimePicker.Location = new System.Drawing.Point(139, 671);
+            this.installDateTimePicker.Location = new System.Drawing.Point(118, 175);
             this.installDateTimePicker.Name = "installDateTimePicker";
             this.installDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.installDateTimePicker.TabIndex = 14;
@@ -677,14 +543,14 @@
             // 
             this.replaceDateTimePicker.CustomFormat = "dd-MM-yyyy";
             this.replaceDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.replaceDateTimePicker.Location = new System.Drawing.Point(139, 697);
+            this.replaceDateTimePicker.Location = new System.Drawing.Point(118, 201);
             this.replaceDateTimePicker.Name = "replaceDateTimePicker";
             this.replaceDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.replaceDateTimePicker.TabIndex = 15;
             // 
             // updateBtn
             // 
-            this.updateBtn.Location = new System.Drawing.Point(264, 609);
+            this.updateBtn.Location = new System.Drawing.Point(118, 234);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(75, 23);
             this.updateBtn.TabIndex = 16;
@@ -695,7 +561,7 @@
             // activeCheckBox
             // 
             this.activeCheckBox.AutoSize = true;
-            this.activeCheckBox.Location = new System.Drawing.Point(259, 539);
+            this.activeCheckBox.Location = new System.Drawing.Point(118, 47);
             this.activeCheckBox.Name = "activeCheckBox";
             this.activeCheckBox.Size = new System.Drawing.Size(62, 17);
             this.activeCheckBox.TabIndex = 17;
@@ -704,7 +570,7 @@
             // 
             // insertBtn
             // 
-            this.insertBtn.Location = new System.Drawing.Point(264, 580);
+            this.insertBtn.Location = new System.Drawing.Point(9, 234);
             this.insertBtn.Name = "insertBtn";
             this.insertBtn.Size = new System.Drawing.Size(75, 23);
             this.insertBtn.TabIndex = 16;
@@ -712,47 +578,110 @@
             this.insertBtn.UseVisualStyleBackColor = true;
             this.insertBtn.Click += new System.EventHandler(this.InsertBtn_Click);
             // 
-            // textBox6
+            // idTextbox
             // 
-            this.textBox6.Location = new System.Drawing.Point(130, 779);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 19;
+            this.idTextbox.Location = new System.Drawing.Point(218, 19);
+            this.idTextbox.Name = "idTextbox";
+            this.idTextbox.ReadOnly = true;
+            this.idTextbox.Size = new System.Drawing.Size(100, 20);
+            this.idTextbox.TabIndex = 19;
             // 
             // replaceDate
             // 
             this.replaceDate.AutoSize = true;
-            this.replaceDate.Location = new System.Drawing.Point(26, 703);
+            this.replaceDate.Location = new System.Drawing.Point(6, 207);
             this.replaceDate.Name = "replaceDate";
             this.replaceDate.Size = new System.Drawing.Size(99, 13);
             this.replaceDate.TabIndex = 10;
             this.replaceDate.Text = "Replacement Date:";
+            // 
+            // inventoryTableAdapter
+            // 
+            this.inventoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // inventoryDataSet1
+            // 
+            this.inventoryDataSet1.DataSetName = "InventoryDataSet";
+            this.inventoryDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // inventoryBindingSource1
+            // 
+            this.inventoryBindingSource1.DataMember = "Inventory";
+            this.inventoryBindingSource1.DataSource = this.inventoryDataSet1;
+            // 
+            // idLbl
+            // 
+            this.idLbl.AutoSize = true;
+            this.idLbl.Location = new System.Drawing.Point(6, 22);
+            this.idLbl.Name = "idLbl";
+            this.idLbl.Size = new System.Drawing.Size(21, 13);
+            this.idLbl.TabIndex = 9;
+            this.idLbl.Text = "ID:";
+            // 
+            // inputGroupBox
+            // 
+            this.inputGroupBox.Controls.Add(this.notesTextbox);
+            this.inputGroupBox.Controls.Add(this.clearBtn);
+            this.inputGroupBox.Controls.Add(this.notesLbl);
+            this.inputGroupBox.Controls.Add(this.idLbl);
+            this.inputGroupBox.Controls.Add(this.idTextbox);
+            this.inputGroupBox.Controls.Add(this.updateBtn);
+            this.inputGroupBox.Controls.Add(this.insertBtn);
+            this.inputGroupBox.Controls.Add(this.activeCheckBox);
+            this.inputGroupBox.Controls.Add(this.itemTxtBox);
+            this.inputGroupBox.Controls.Add(this.empTxtBox);
+            this.inputGroupBox.Controls.Add(this.deptTxtBox);
+            this.inputGroupBox.Controls.Add(this.replaceDate);
+            this.inputGroupBox.Controls.Add(this.replaceDateTimePicker);
+            this.inputGroupBox.Controls.Add(this.installDateLbl);
+            this.inputGroupBox.Controls.Add(this.snTxtBox);
+            this.inputGroupBox.Controls.Add(this.itemTagLbl);
+            this.inputGroupBox.Controls.Add(this.installDateTimePicker);
+            this.inputGroupBox.Controls.Add(this.snLbl);
+            this.inputGroupBox.Controls.Add(this.itemTagTxtBox);
+            this.inputGroupBox.Controls.Add(this.deptLbl);
+            this.inputGroupBox.Controls.Add(this.itemLbl);
+            this.inputGroupBox.Controls.Add(this.empLbl);
+            this.inputGroupBox.Location = new System.Drawing.Point(12, 517);
+            this.inputGroupBox.Name = "inputGroupBox";
+            this.inputGroupBox.Size = new System.Drawing.Size(941, 266);
+            this.inputGroupBox.TabIndex = 21;
+            this.inputGroupBox.TabStop = false;
+            this.inputGroupBox.Text = "Input";
+            // 
+            // clearBtn
+            // 
+            this.clearBtn.Location = new System.Drawing.Point(243, 234);
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(75, 23);
+            this.clearBtn.TabIndex = 22;
+            this.clearBtn.Text = "Clear";
+            this.clearBtn.UseVisualStyleBackColor = true;
+            // 
+            // notesTextbox
+            // 
+            this.notesTextbox.Location = new System.Drawing.Point(407, 18);
+            this.notesTextbox.Multiline = true;
+            this.notesTextbox.Name = "notesTextbox";
+            this.notesTextbox.Size = new System.Drawing.Size(528, 239);
+            this.notesTextbox.TabIndex = 23;
+            // 
+            // notesLbl
+            // 
+            this.notesLbl.AutoSize = true;
+            this.notesLbl.Location = new System.Drawing.Point(346, 22);
+            this.notesLbl.Name = "notesLbl";
+            this.notesLbl.Size = new System.Drawing.Size(38, 13);
+            this.notesLbl.TabIndex = 9;
+            this.notesLbl.Text = "Notes:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1885, 864);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.activeCheckBox);
-            this.Controls.Add(this.insertBtn);
-            this.Controls.Add(this.updateBtn);
-            this.Controls.Add(this.replaceDateTimePicker);
-            this.Controls.Add(this.installDateTimePicker);
-            this.Controls.Add(this.itemTagTxtBox);
-            this.Controls.Add(this.snTxtBox);
-            this.Controls.Add(this.deptTxtBox);
-            this.Controls.Add(this.replaceDate);
-            this.Controls.Add(this.installDateLbl);
-            this.Controls.Add(this.itemTagLbl);
-            this.Controls.Add(this.snLbl);
-            this.Controls.Add(this.deptLbl);
-            this.Controls.Add(this.empLbl);
-            this.Controls.Add(this.itemLbl);
-            this.Controls.Add(this.empTxtBox);
-            this.Controls.Add(this.itemTxtBox);
-            this.Controls.Add(this.bindingNavigator1);
+            this.ClientSize = new System.Drawing.Size(1088, 788);
+            this.Controls.Add(this.inputGroupBox);
             this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.inventoryDataGridView);
             this.Controls.Add(this.exitButton);
@@ -765,9 +694,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet)).EndInit();
             this.fillByToolStrip.ResumeLayout(false);
             this.fillByToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-            this.bindingNavigator1.ResumeLayout(false);
-            this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource1)).EndInit();
+            this.inputGroupBox.ResumeLayout(false);
+            this.inputGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -804,18 +734,6 @@
         private System.Windows.Forms.ToolStripButton pasteToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
-        private System.Windows.Forms.BindingNavigator bindingNavigator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.TextBox itemTxtBox;
         private System.Windows.Forms.TextBox empTxtBox;
         private System.Windows.Forms.Label itemLbl;
@@ -834,7 +752,6 @@
         private System.Windows.Forms.Button insertBtn;
         private System.Windows.Forms.ToolStripButton refreshToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeDataGridViewTextBoxColumn;
@@ -845,8 +762,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn replaceByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewDeleteButton;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox idTextbox;
         private System.Windows.Forms.Label replaceDate;
+        private InventoryDataSet inventoryDataSet1;
+        private System.Windows.Forms.BindingSource inventoryBindingSource1;
+        private System.Windows.Forms.Label idLbl;
+        private System.Windows.Forms.GroupBox inputGroupBox;
+        private System.Windows.Forms.Button clearBtn;
+        private System.Windows.Forms.TextBox notesTextbox;
+        private System.Windows.Forms.Label notesLbl;
     }
 }
 

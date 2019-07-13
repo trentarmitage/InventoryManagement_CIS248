@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,56 +15,50 @@ namespace Inventory
     public partial class Form1 : Form
     {
 
+
+
+
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
+        // Updates & Fills the datagridview
+        public void UpdateData()
+        {
+            this.inventoryTableAdapter.Update(this.inventoryDataSet.Inventory);
+            this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
+        }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            // Closes the form
+            // Closes the form, triggers Form Closing
             this.Close();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'inventoryDataSet1.Inventory' table. You can move, or remove it, as needed.
-            this.inventoryTableAdapter.Fill(this.inventoryDataSet1.Inventory);
-
             // TODO: This line of code loads data into the 'inventoryDataSet.Inventory' table. You can move, or remove it, as needed.
             this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
+            // fill Departmentlists drop source, add Departments as needed
+            var departmentsList = new List<string> { "All", "GIS", "IT" };
+            deptComboBox.ComboBox.DataSource = departmentsList;
 
         }
 
         private void fillByEmpToolStripButton_Click(object sender, EventArgs e)
         {
 
-            try
-            {
-                this.inventoryTableAdapter.FillByEmp(this.inventoryDataSet.Inventory, employeeToolStripTextBox.Text);
+            try {
+                this.inventoryTableAdapter.FillByEmp(this.inventoryDataSet.Inventory, empToolStripTextBox.Text);
             }
-            catch (System.Exception ex)
-            {
+            catch (System.Exception ex) {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
-
         }
 
 
-        private void fillByDeptToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.inventoryTableAdapter.FillByDept(this.inventoryDataSet.Inventory, departmentToolStripTextBox.Text);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-
-            }
-        }
-
+       
         private void SaveToolStripButton_Click(object sender, EventArgs e)
         {
             //Save file below
@@ -89,33 +84,30 @@ namespace Inventory
                 {
                     checkboxValue = false;
                 }                                           
+                // Updates selected fields in DataGridView
                 this.inventoryTableAdapter.UpdateQuery(itemTxtBox.Text, empTxtBox.Text, deptTxtBox.Text, snTxtBox.Text, itemTagTxtBox.Text, installDateTimePicker.Value, replaceDateTimePicker.Value, checkboxValue, id);
-                this.inventoryTableAdapter.Update(this.inventoryDataSet.Inventory);
-                this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
+                UpdateData();
             }
         }
 
         private void InventoryDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            //i forgot
             itemTxtBox.Text = inventoryDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
 
         private void InsertBtn_Click(object sender, EventArgs e)
         {
+            // Find value of activeCheckbox, convert to bool
             bool checkboxValue;
             if (activeCheckBox.Checked)
-            {
-                checkboxValue = true;
-            }
+            { checkboxValue = true;}
             else
-            {
-                checkboxValue = false;
-            }
+            {checkboxValue = false;}
 
+            // Inserts new fields into table adapter, updates data
             this.inventoryTableAdapter.Insert(itemTxtBox.Text, empTxtBox.Text, deptTxtBox.Text, snTxtBox.Text, itemTagTxtBox.Text, installDateTimePicker.Value, replaceDateTimePicker.Value, checkboxValue);
-            this.inventoryTableAdapter.Update(this.inventoryDataSet.Inventory);
-            this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
-
+            UpdateData();
         }
 
 
@@ -125,7 +117,6 @@ namespace Inventory
             // Murachs C# 2015 Page 316
             string message = "Are you sure you want to close the program? Unsaved data will be lost. \n \n" +
                              "Do you wish to save?";
-
             DialogResult button = MessageBox.Show(message, "Inventory", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
 
             if (button == DialogResult.Yes)
@@ -140,8 +131,8 @@ namespace Inventory
 
         private void RefreshToolStripButton_Click(object sender, EventArgs e)
         {
-            // Refresh the data
-            this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
+            // Refresh button, update & fill 
+            UpdateData();
         }
 
         private void InventoryDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -160,11 +151,9 @@ namespace Inventory
 
         private void InventoryDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-
-            // ID
-
             if (inventoryDataGridView.CurrentCell != null)
             {
+                // Fills input to current selected row
                 idTextbox.Text = inventoryDataGridView.CurrentRow.Cells["iDDataGridViewTextBoxColumn"].Value.ToString();
                 itemTxtBox.Text = inventoryDataGridView.CurrentRow.Cells[1].Value.ToString();
                 empTxtBox.Text = inventoryDataGridView.CurrentRow.Cells[2].Value.ToString();
@@ -196,6 +185,31 @@ namespace Inventory
                 }
             }
 
+        }
+        
+        private void DeptComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (deptComboBox.SelectedItem.ToString() == "All")
+            {
+                UpdateData();
+            }
+            else
+            {
+                this.inventoryTableAdapter.FillByDept(this.inventoryDataSet.Inventory, deptComboBox.SelectedItem.ToString());
+            }
+        }
+
+        // Export the DGV to a .CSV file
+        private void ExportButton_Click(object sender, EventArgs e)
+        {
+            inventoryDataGridView.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            inventoryDataGridView.RowHeadersVisible = false;
+            inventoryDataGridView.SelectAll();
+
+            DataObject dataObject = inventoryDataGridView.GetClipboardContent();
+            File.WriteAllText("Data/export.csv", dataObject.GetData("Csv") as string);
+
+            MessageBox.Show("Export complete");
         }
     }
 

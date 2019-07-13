@@ -55,20 +55,16 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
             this.refreshToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.deptToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.deptComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.fillByDeptToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.departmentToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.fillByEmpToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.employeeToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.empToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.cutToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.pasteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.itemTxtBox = new System.Windows.Forms.TextBox();
@@ -89,20 +85,17 @@
             this.insertBtn = new System.Windows.Forms.Button();
             this.idTextbox = new System.Windows.Forms.TextBox();
             this.replaceDate = new System.Windows.Forms.Label();
-            this.inventoryTableAdapter = new Inventory.InventoryDataSetTableAdapters.InventoryTableAdapter();
-            this.inventoryDataSet1 = new Inventory.InventoryDataSet();
-            this.inventoryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.idLbl = new System.Windows.Forms.Label();
             this.inputGroupBox = new System.Windows.Forms.GroupBox();
-            this.clearBtn = new System.Windows.Forms.Button();
             this.notesTextbox = new System.Windows.Forms.TextBox();
+            this.clearBtn = new System.Windows.Forms.Button();
             this.notesLbl = new System.Windows.Forms.Label();
+            this.inventoryTableAdapter = new Inventory.InventoryDataSetTableAdapters.InventoryTableAdapter();
+            this.exportButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet)).BeginInit();
             this.fillByToolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource1)).BeginInit();
             this.inputGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -278,7 +271,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(991, 760);
+            this.exitButton.Location = new System.Drawing.Point(953, 751);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 1;
@@ -291,25 +284,21 @@
             this.fillByToolStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.refreshToolStripButton,
+            this.toolStripSeparator4,
+            this.deptToolStripLabel,
+            this.deptComboBox,
             this.toolStripSeparator3,
-            this.fillByDeptToolStripButton,
-            this.departmentToolStripTextBox,
-            this.toolStripSeparator1,
             this.fillByEmpToolStripButton,
-            this.employeeToolStripTextBox,
-            this.newToolStripButton,
+            this.empToolStripTextBox,
             this.openToolStripButton,
             this.saveToolStripButton,
-            this.printToolStripButton,
             this.toolStripSeparator,
-            this.cutToolStripButton,
             this.copyToolStripButton,
-            this.pasteToolStripButton,
             this.toolStripSeparator2,
             this.helpToolStripButton});
             this.fillByToolStrip.Location = new System.Drawing.Point(12, 489);
             this.fillByToolStrip.Name = "fillByToolStrip";
-            this.fillByToolStrip.Size = new System.Drawing.Size(663, 25);
+            this.fillByToolStrip.Size = new System.Drawing.Size(584, 25);
             this.fillByToolStrip.TabIndex = 5;
             this.fillByToolStrip.Text = "fillByDeptToolStrip";
             // 
@@ -321,28 +310,27 @@
             this.refreshToolStripButton.Text = "Refresh";
             this.refreshToolStripButton.Click += new System.EventHandler(this.RefreshToolStripButton_Click);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // deptToolStripLabel
+            // 
+            this.deptToolStripLabel.Name = "deptToolStripLabel";
+            this.deptToolStripLabel.Size = new System.Drawing.Size(73, 22);
+            this.deptToolStripLabel.Text = "Department:";
+            // 
+            // deptComboBox
+            // 
+            this.deptComboBox.Name = "deptComboBox";
+            this.deptComboBox.Size = new System.Drawing.Size(121, 25);
+            this.deptComboBox.SelectedIndexChanged += new System.EventHandler(this.DeptComboBox_SelectedIndexChanged);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // fillByDeptToolStripButton
-            // 
-            this.fillByDeptToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillByDeptToolStripButton.Name = "fillByDeptToolStripButton";
-            this.fillByDeptToolStripButton.Size = new System.Drawing.Size(81, 22);
-            this.fillByDeptToolStripButton.Text = "Filter By Dept";
-            this.fillByDeptToolStripButton.Click += new System.EventHandler(this.fillByDeptToolStripButton_Click);
-            // 
-            // departmentToolStripTextBox
-            // 
-            this.departmentToolStripTextBox.Name = "departmentToolStripTextBox";
-            this.departmentToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // fillByEmpToolStripButton
             // 
@@ -353,19 +341,11 @@
             this.fillByEmpToolStripButton.Text = "Filter By Employee";
             this.fillByEmpToolStripButton.Click += new System.EventHandler(this.fillByEmpToolStripButton_Click);
             // 
-            // employeeToolStripTextBox
+            // empToolStripTextBox
             // 
-            this.employeeToolStripTextBox.Name = "employeeToolStripTextBox";
-            this.employeeToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            // 
-            // newToolStripButton
-            // 
-            this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.newToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripButton.Image")));
-            this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.newToolStripButton.Name = "newToolStripButton";
-            this.newToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.newToolStripButton.Text = "&New";
+            this.empToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.empToolStripTextBox.Name = "empToolStripTextBox";
+            this.empToolStripTextBox.Size = new System.Drawing.Size(100, 25);
             // 
             // openToolStripButton
             // 
@@ -386,28 +366,10 @@
             this.saveToolStripButton.Text = "&Save";
             this.saveToolStripButton.Click += new System.EventHandler(this.SaveToolStripButton_Click);
             // 
-            // printToolStripButton
-            // 
-            this.printToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.printToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripButton.Image")));
-            this.printToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.printToolStripButton.Name = "printToolStripButton";
-            this.printToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.printToolStripButton.Text = "&Print";
-            // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
             this.toolStripSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // cutToolStripButton
-            // 
-            this.cutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.cutToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("cutToolStripButton.Image")));
-            this.cutToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.cutToolStripButton.Name = "cutToolStripButton";
-            this.cutToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.cutToolStripButton.Text = "C&ut";
             // 
             // copyToolStripButton
             // 
@@ -417,15 +379,6 @@
             this.copyToolStripButton.Name = "copyToolStripButton";
             this.copyToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.copyToolStripButton.Text = "&Copy";
-            // 
-            // pasteToolStripButton
-            // 
-            this.pasteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.pasteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripButton.Image")));
-            this.pasteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.pasteToolStripButton.Name = "pasteToolStripButton";
-            this.pasteToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.pasteToolStripButton.Text = "&Paste";
             // 
             // toolStripSeparator2
             // 
@@ -595,20 +548,6 @@
             this.replaceDate.TabIndex = 10;
             this.replaceDate.Text = "Replacement Date:";
             // 
-            // inventoryTableAdapter
-            // 
-            this.inventoryTableAdapter.ClearBeforeFill = true;
-            // 
-            // inventoryDataSet1
-            // 
-            this.inventoryDataSet1.DataSetName = "InventoryDataSet";
-            this.inventoryDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // inventoryBindingSource1
-            // 
-            this.inventoryBindingSource1.DataMember = "Inventory";
-            this.inventoryBindingSource1.DataSource = this.inventoryDataSet1;
-            // 
             // idLbl
             // 
             this.idLbl.AutoSize = true;
@@ -649,6 +588,14 @@
             this.inputGroupBox.TabStop = false;
             this.inputGroupBox.Text = "Input";
             // 
+            // notesTextbox
+            // 
+            this.notesTextbox.Location = new System.Drawing.Point(407, 18);
+            this.notesTextbox.Multiline = true;
+            this.notesTextbox.Name = "notesTextbox";
+            this.notesTextbox.Size = new System.Drawing.Size(528, 239);
+            this.notesTextbox.TabIndex = 23;
+            // 
             // clearBtn
             // 
             this.clearBtn.Location = new System.Drawing.Point(243, 234);
@@ -657,14 +604,6 @@
             this.clearBtn.TabIndex = 22;
             this.clearBtn.Text = "Clear";
             this.clearBtn.UseVisualStyleBackColor = true;
-            // 
-            // notesTextbox
-            // 
-            this.notesTextbox.Location = new System.Drawing.Point(407, 18);
-            this.notesTextbox.Multiline = true;
-            this.notesTextbox.Name = "notesTextbox";
-            this.notesTextbox.Size = new System.Drawing.Size(528, 239);
-            this.notesTextbox.TabIndex = 23;
             // 
             // notesLbl
             // 
@@ -675,12 +614,27 @@
             this.notesLbl.TabIndex = 9;
             this.notesLbl.Text = "Notes:";
             // 
+            // inventoryTableAdapter
+            // 
+            this.inventoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // exportButton
+            // 
+            this.exportButton.Location = new System.Drawing.Point(953, 536);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(75, 23);
+            this.exportButton.TabIndex = 22;
+            this.exportButton.Text = "Export";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.ExportButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1088, 788);
+            this.ClientSize = new System.Drawing.Size(1088, 803);
+            this.Controls.Add(this.exportButton);
             this.Controls.Add(this.inputGroupBox);
             this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.inventoryDataGridView);
@@ -694,8 +648,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet)).EndInit();
             this.fillByToolStrip.ResumeLayout(false);
             this.fillByToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource1)).EndInit();
             this.inputGroupBox.ResumeLayout(false);
             this.inputGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -719,19 +671,11 @@
         private System.Windows.Forms.DataGridView inventoryDataGridView;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.ToolStrip fillByToolStrip;
-        private System.Windows.Forms.ToolStripTextBox departmentToolStripTextBox;
-        private System.Windows.Forms.ToolStripButton fillByDeptToolStripButton;
-        private System.Windows.Forms.ToolStripTextBox employeeToolStripTextBox;
         private System.Windows.Forms.ToolStripButton fillByEmpToolStripButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton newToolStripButton;
         private System.Windows.Forms.ToolStripButton openToolStripButton;
         private System.Windows.Forms.ToolStripButton saveToolStripButton;
-        private System.Windows.Forms.ToolStripButton printToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
-        private System.Windows.Forms.ToolStripButton cutToolStripButton;
         private System.Windows.Forms.ToolStripButton copyToolStripButton;
-        private System.Windows.Forms.ToolStripButton pasteToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
         private System.Windows.Forms.TextBox itemTxtBox;
@@ -764,13 +708,16 @@
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewDeleteButton;
         private System.Windows.Forms.TextBox idTextbox;
         private System.Windows.Forms.Label replaceDate;
-        private InventoryDataSet inventoryDataSet1;
-        private System.Windows.Forms.BindingSource inventoryBindingSource1;
         private System.Windows.Forms.Label idLbl;
         private System.Windows.Forms.GroupBox inputGroupBox;
         private System.Windows.Forms.Button clearBtn;
         private System.Windows.Forms.TextBox notesTextbox;
         private System.Windows.Forms.Label notesLbl;
+        private System.Windows.Forms.ToolStripComboBox deptComboBox;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripLabel deptToolStripLabel;
+        private System.Windows.Forms.ToolStripTextBox empToolStripTextBox;
+        private System.Windows.Forms.Button exportButton;
     }
 }
 

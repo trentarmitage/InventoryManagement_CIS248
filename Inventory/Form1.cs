@@ -85,7 +85,7 @@ namespace Inventory
                     checkboxValue = false;
                 }                                           
                 // Updates selected fields in DataGridView
-                this.inventoryTableAdapter.UpdateQuery(itemTxtBox.Text, empTxtBox.Text, deptTxtBox.Text, snTxtBox.Text, itemTagTxtBox.Text, installDateTimePicker.Value, replaceDateTimePicker.Value, checkboxValue, id);
+                this.inventoryTableAdapter.UpdateQuery(itemTxtBox.Text, empTxtBox.Text, deptTxtBox.Text, snTxtBox.Text, itemTagTxtBox.Text, installDateTimePicker.Value, replaceDateTimePicker.Value, checkboxValue, notesTextbox.Text, id);
                 UpdateData();
             }
         }
@@ -106,7 +106,7 @@ namespace Inventory
             {checkboxValue = false;}
 
             // Inserts new fields into table adapter, updates data
-            this.inventoryTableAdapter.Insert(itemTxtBox.Text, empTxtBox.Text, deptTxtBox.Text, snTxtBox.Text, itemTagTxtBox.Text, installDateTimePicker.Value, replaceDateTimePicker.Value, checkboxValue);
+            this.inventoryTableAdapter.Insert(itemTxtBox.Text, empTxtBox.Text, deptTxtBox.Text, snTxtBox.Text, itemTagTxtBox.Text, installDateTimePicker.Value, replaceDateTimePicker.Value, checkboxValue, notesTextbox.Text);
             UpdateData();
         }
 
@@ -154,6 +154,7 @@ namespace Inventory
             if (inventoryDataGridView.CurrentCell != null)
             {
                 // Fills input to current selected row
+                int id = Convert.ToInt32(inventoryDataGridView.CurrentRow.Cells["iDDataGridViewTextBoxColumn"].Value);
                 idTextbox.Text = inventoryDataGridView.CurrentRow.Cells["iDDataGridViewTextBoxColumn"].Value.ToString();
                 itemTxtBox.Text = inventoryDataGridView.CurrentRow.Cells[1].Value.ToString();
                 empTxtBox.Text = inventoryDataGridView.CurrentRow.Cells[2].Value.ToString();
@@ -183,6 +184,9 @@ namespace Inventory
                 {
                     activeCheckBox.Checked = false;
                 }
+
+                // Get Notes field
+                notesTextbox.Text = this.inventoryTableAdapter.GetNotesQuery(id) ;
             }
 
         }
@@ -210,6 +214,18 @@ namespace Inventory
             File.WriteAllText("Data/export.csv", dataObject.GetData("Csv") as string);
 
             MessageBox.Show("Export complete");
+        }
+
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            // Resets fields
+            idTextbox.Text = "";
+            itemTxtBox.Text = "";
+            empTxtBox.Text = "";
+            deptTxtBox.Text = "";
+            itemTagTxtBox.Text = "";
+            snTxtBox.Text = "";
+            notesTextbox.Text = "";
         }
     }
 

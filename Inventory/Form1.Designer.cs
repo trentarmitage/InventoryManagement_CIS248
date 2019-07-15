@@ -180,7 +180,7 @@
             this.activeDataGridViewCheckBoxColumn,
             this.dataGridViewDeleteButton});
             this.inventoryDataGridView.DataSource = this.inventoryBindingSource;
-            this.inventoryDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.inventoryDataGridView.Location = new System.Drawing.Point(10, 12);
             this.inventoryDataGridView.Name = "inventoryDataGridView";
             this.inventoryDataGridView.ReadOnly = true;
             this.inventoryDataGridView.Size = new System.Drawing.Size(1054, 474);
@@ -271,10 +271,10 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(953, 751);
+            this.exitButton.Location = new System.Drawing.Point(968, 234);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
-            this.exitButton.TabIndex = 1;
+            this.exitButton.TabIndex = 14;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
@@ -343,7 +343,6 @@
             // 
             // empToolStripTextBox
             // 
-            this.empToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.empToolStripTextBox.Name = "empToolStripTextBox";
             this.empToolStripTextBox.Size = new System.Drawing.Size(100, 25);
             // 
@@ -399,14 +398,14 @@
             this.itemTxtBox.Location = new System.Drawing.Point(218, 45);
             this.itemTxtBox.Name = "itemTxtBox";
             this.itemTxtBox.Size = new System.Drawing.Size(100, 20);
-            this.itemTxtBox.TabIndex = 7;
+            this.itemTxtBox.TabIndex = 2;
             // 
             // empTxtBox
             // 
             this.empTxtBox.Location = new System.Drawing.Point(218, 71);
             this.empTxtBox.Name = "empTxtBox";
             this.empTxtBox.Size = new System.Drawing.Size(100, 20);
-            this.empTxtBox.TabIndex = 8;
+            this.empTxtBox.TabIndex = 3;
             // 
             // itemLbl
             // 
@@ -467,21 +466,21 @@
             this.deptTxtBox.Location = new System.Drawing.Point(218, 97);
             this.deptTxtBox.Name = "deptTxtBox";
             this.deptTxtBox.Size = new System.Drawing.Size(100, 20);
-            this.deptTxtBox.TabIndex = 11;
+            this.deptTxtBox.TabIndex = 4;
             // 
             // snTxtBox
             // 
             this.snTxtBox.Location = new System.Drawing.Point(218, 123);
             this.snTxtBox.Name = "snTxtBox";
             this.snTxtBox.Size = new System.Drawing.Size(100, 20);
-            this.snTxtBox.TabIndex = 12;
+            this.snTxtBox.TabIndex = 5;
             // 
             // itemTagTxtBox
             // 
             this.itemTagTxtBox.Location = new System.Drawing.Point(218, 149);
             this.itemTagTxtBox.Name = "itemTagTxtBox";
             this.itemTagTxtBox.Size = new System.Drawing.Size(100, 20);
-            this.itemTagTxtBox.TabIndex = 13;
+            this.itemTagTxtBox.TabIndex = 6;
             // 
             // installDateTimePicker
             // 
@@ -490,7 +489,7 @@
             this.installDateTimePicker.Location = new System.Drawing.Point(118, 175);
             this.installDateTimePicker.Name = "installDateTimePicker";
             this.installDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.installDateTimePicker.TabIndex = 14;
+            this.installDateTimePicker.TabIndex = 7;
             // 
             // replaceDateTimePicker
             // 
@@ -499,14 +498,14 @@
             this.replaceDateTimePicker.Location = new System.Drawing.Point(118, 201);
             this.replaceDateTimePicker.Name = "replaceDateTimePicker";
             this.replaceDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.replaceDateTimePicker.TabIndex = 15;
+            this.replaceDateTimePicker.TabIndex = 8;
             // 
             // updateBtn
             // 
             this.updateBtn.Location = new System.Drawing.Point(118, 234);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(75, 23);
-            this.updateBtn.TabIndex = 16;
+            this.updateBtn.TabIndex = 10;
             this.updateBtn.Text = "Update";
             this.updateBtn.UseVisualStyleBackColor = true;
             this.updateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
@@ -517,7 +516,7 @@
             this.activeCheckBox.Location = new System.Drawing.Point(118, 47);
             this.activeCheckBox.Name = "activeCheckBox";
             this.activeCheckBox.Size = new System.Drawing.Size(62, 17);
-            this.activeCheckBox.TabIndex = 17;
+            this.activeCheckBox.TabIndex = 1;
             this.activeCheckBox.Text = "Active?";
             this.activeCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -526,7 +525,7 @@
             this.insertBtn.Location = new System.Drawing.Point(9, 234);
             this.insertBtn.Name = "insertBtn";
             this.insertBtn.Size = new System.Drawing.Size(75, 23);
-            this.insertBtn.TabIndex = 16;
+            this.insertBtn.TabIndex = 9;
             this.insertBtn.Text = "Insert";
             this.insertBtn.UseVisualStyleBackColor = true;
             this.insertBtn.Click += new System.EventHandler(this.InsertBtn_Click);
@@ -537,7 +536,7 @@
             this.idTextbox.Name = "idTextbox";
             this.idTextbox.ReadOnly = true;
             this.idTextbox.Size = new System.Drawing.Size(100, 20);
-            this.idTextbox.TabIndex = 19;
+            this.idTextbox.TabIndex = 0;
             // 
             // replaceDate
             // 
@@ -554,15 +553,17 @@
             this.idLbl.Location = new System.Drawing.Point(6, 22);
             this.idLbl.Name = "idLbl";
             this.idLbl.Size = new System.Drawing.Size(21, 13);
-            this.idLbl.TabIndex = 9;
+            this.idLbl.TabIndex = 0;
             this.idLbl.Text = "ID:";
             // 
             // inputGroupBox
             // 
+            this.inputGroupBox.Controls.Add(this.exportButton);
             this.inputGroupBox.Controls.Add(this.notesTextbox);
             this.inputGroupBox.Controls.Add(this.clearBtn);
             this.inputGroupBox.Controls.Add(this.notesLbl);
             this.inputGroupBox.Controls.Add(this.idLbl);
+            this.inputGroupBox.Controls.Add(this.exitButton);
             this.inputGroupBox.Controls.Add(this.idTextbox);
             this.inputGroupBox.Controls.Add(this.updateBtn);
             this.inputGroupBox.Controls.Add(this.insertBtn);
@@ -581,9 +582,9 @@
             this.inputGroupBox.Controls.Add(this.deptLbl);
             this.inputGroupBox.Controls.Add(this.itemLbl);
             this.inputGroupBox.Controls.Add(this.empLbl);
-            this.inputGroupBox.Location = new System.Drawing.Point(12, 517);
+            this.inputGroupBox.Location = new System.Drawing.Point(10, 517);
             this.inputGroupBox.Name = "inputGroupBox";
-            this.inputGroupBox.Size = new System.Drawing.Size(941, 266);
+            this.inputGroupBox.Size = new System.Drawing.Size(1054, 266);
             this.inputGroupBox.TabIndex = 21;
             this.inputGroupBox.TabStop = false;
             this.inputGroupBox.Text = "Input";
@@ -591,19 +592,21 @@
             // notesTextbox
             // 
             this.notesTextbox.Location = new System.Drawing.Point(407, 18);
+            this.notesTextbox.MaxLength = 1000;
             this.notesTextbox.Multiline = true;
             this.notesTextbox.Name = "notesTextbox";
             this.notesTextbox.Size = new System.Drawing.Size(528, 239);
-            this.notesTextbox.TabIndex = 23;
+            this.notesTextbox.TabIndex = 12;
             // 
             // clearBtn
             // 
             this.clearBtn.Location = new System.Drawing.Point(243, 234);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(75, 23);
-            this.clearBtn.TabIndex = 22;
+            this.clearBtn.TabIndex = 11;
             this.clearBtn.Text = "Clear";
             this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // notesLbl
             // 
@@ -620,10 +623,10 @@
             // 
             // exportButton
             // 
-            this.exportButton.Location = new System.Drawing.Point(953, 536);
+            this.exportButton.Location = new System.Drawing.Point(968, 197);
             this.exportButton.Name = "exportButton";
             this.exportButton.Size = new System.Drawing.Size(75, 23);
-            this.exportButton.TabIndex = 22;
+            this.exportButton.TabIndex = 13;
             this.exportButton.Text = "Export";
             this.exportButton.UseVisualStyleBackColor = true;
             this.exportButton.Click += new System.EventHandler(this.ExportButton_Click);
@@ -633,12 +636,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1088, 803);
-            this.Controls.Add(this.exportButton);
+            this.ClientSize = new System.Drawing.Size(1074, 785);
             this.Controls.Add(this.inputGroupBox);
             this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.inventoryDataGridView);
-            this.Controls.Add(this.exitButton);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Inventory Management";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);

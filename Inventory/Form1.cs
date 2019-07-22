@@ -226,6 +226,20 @@ namespace Inventory
             itemTagTxtBox.Text = "";
             snTxtBox.Text = "";
             notesTextbox.Text = "";
+            installDateTimePicker.Value = DateTime.Now;
+            replaceDateTimePicker.Value = DateTime.Now;
+        }
+
+        private void TagToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.inventoryTableAdapter.FillByTag(this.inventoryDataSet.Inventory, tagToolStripTextBox.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
         }
     }
 

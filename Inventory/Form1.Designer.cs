@@ -61,6 +61,9 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.fillByEmpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.empToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tagToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.tagToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -92,9 +95,6 @@
             this.clearBtn = new System.Windows.Forms.Button();
             this.notesLbl = new System.Windows.Forms.Label();
             this.inventoryTableAdapter = new Inventory.InventoryDataSetTableAdapters.InventoryTableAdapter();
-            this.tagToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.tagToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet)).BeginInit();
@@ -302,9 +302,9 @@
             this.copyToolStripButton,
             this.toolStripSeparator2,
             this.helpToolStripButton});
-            this.fillByToolStrip.Location = new System.Drawing.Point(12, 489);
+            this.fillByToolStrip.Location = new System.Drawing.Point(10, 489);
             this.fillByToolStrip.Name = "fillByToolStrip";
-            this.fillByToolStrip.Size = new System.Drawing.Size(759, 25);
+            this.fillByToolStrip.Size = new System.Drawing.Size(728, 25);
             this.fillByToolStrip.TabIndex = 5;
             this.fillByToolStrip.Text = "fillByDeptToolStrip";
             // 
@@ -345,13 +345,34 @@
             this.fillByEmpToolStripButton.Name = "fillByEmpToolStripButton";
             this.fillByEmpToolStripButton.Size = new System.Drawing.Size(108, 22);
             this.fillByEmpToolStripButton.Text = "Filter By Employee";
-            this.fillByEmpToolStripButton.Click += new System.EventHandler(this.fillByEmpToolStripButton_Click);
+            this.fillByEmpToolStripButton.Click += new System.EventHandler(this.FillByEmpToolStripButton_Click);
             // 
             // empToolStripTextBox
             // 
             this.empToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.empToolStripTextBox.Name = "empToolStripTextBox";
             this.empToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tagToolStripButton
+            // 
+            this.tagToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tagToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("tagToolStripButton.Image")));
+            this.tagToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tagToolStripButton.Name = "tagToolStripButton";
+            this.tagToolStripButton.Size = new System.Drawing.Size(36, 22);
+            this.tagToolStripButton.Text = "Tag#";
+            this.tagToolStripButton.Click += new System.EventHandler(this.TagToolStripButton_Click);
+            // 
+            // tagToolStripTextBox
+            // 
+            this.tagToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tagToolStripTextBox.Name = "tagToolStripTextBox";
+            this.tagToolStripTextBox.Size = new System.Drawing.Size(100, 25);
             // 
             // openToolStripButton
             // 
@@ -637,27 +658,6 @@
             // inventoryTableAdapter
             // 
             this.inventoryTableAdapter.ClearBeforeFill = true;
-            // 
-            // tagToolStripButton
-            // 
-            this.tagToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tagToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("tagToolStripButton.Image")));
-            this.tagToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tagToolStripButton.Name = "tagToolStripButton";
-            this.tagToolStripButton.Size = new System.Drawing.Size(36, 22);
-            this.tagToolStripButton.Text = "Tag#";
-            this.tagToolStripButton.Click += new System.EventHandler(this.TagToolStripButton_Click);
-            // 
-            // tagToolStripTextBox
-            // 
-            this.tagToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tagToolStripTextBox.Name = "tagToolStripTextBox";
-            this.tagToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // Form1
             // 

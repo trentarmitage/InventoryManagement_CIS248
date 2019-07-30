@@ -88,7 +88,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="InventoryClass.cs" />
+    <Compile Include="InventoryDataSet.cs">
+      <DependentUpon>InventoryDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="InventoryDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -41,12 +41,12 @@ namespace Inventory
             // TODO: This line of code loads data into the 'inventoryDataSet.Inventory' table. You can move, or remove it, as needed.
             this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
             // fill Departmentlists drop source, add Departments as needed
-            var departmentsList = new List<string> { "All", "GIS", "IT" };
+            var departmentsList = new List<string> { "All", "GIS", "IT", "Assessor", "Auditor", "Highway", "Recorders" };
             deptComboBox.ComboBox.DataSource = departmentsList;
 
         }
 
-        private void fillByEmpToolStripButton_Click(object sender, EventArgs e)
+        private void FillByEmpToolStripButton_Click(object sender, EventArgs e)
         {
 
             try {
@@ -67,7 +67,6 @@ namespace Inventory
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
-            //Grab ID from Field or showdialog maybe? Then do the dirty work.
             if (inventoryDataGridView.CurrentCell == null)
             {
                 MessageBox.Show("Please select a field to update!");
@@ -92,7 +91,7 @@ namespace Inventory
 
         private void InventoryDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //i forgot
+           
             itemTxtBox.Text = inventoryDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
 
@@ -144,7 +143,6 @@ namespace Inventory
             //Check if click is on specific column 
             if (e.ColumnIndex == inventoryDataGridView.Columns["dataGridViewDeleteButton"].Index)
             {
-                //Put some logic here, for example to remove row from your binding list.
                 inventoryBindingSource.RemoveAt(e.RowIndex);
             }
         }
@@ -241,6 +239,7 @@ namespace Inventory
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
+
     }
 
 }
